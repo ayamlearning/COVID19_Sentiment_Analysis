@@ -36,11 +36,7 @@ def remove_numeric(txt):
     return list_to_str(words_ns)
 
 def list_to_str(lst):
-    nwstr=""
-    for i in lst:
-        nwstr+=i+" "
-        
-    return nwstr
+    return ' '.join([str(elem) for elem in lst])
 
 def get_nouns(txt):
     nouns=['NNP','NN']
@@ -79,7 +75,7 @@ def remove_RT(txt):
 def merge_df_col_val(txt_col):
     newstr=""
     for t in txt_col.values.flatten():
-        newstr+=t.lower() + ''
+        newstr+=str(t).lower() + ''
     return newstr
 
 def remove_punct_marks(txt):

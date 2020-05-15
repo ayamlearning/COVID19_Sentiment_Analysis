@@ -79,6 +79,13 @@ def sentiment_classification(data_set):
 
     return data_set
 
+#
+# TODO: Automatically add todays tweets
+#
+
+
+
+#Main Methods
 if __name__ == "__main__":
     extract_tweets(str(datetime.date.today()),str(datetime.date.today()),['covid'])
     transfrom_tweets()
