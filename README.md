@@ -15,7 +15,7 @@ Zambia has a population of 18.2 million people with over 50 % active internet us
 ## Methodology
 A total of 5232 tweets were mined from twitter between the 15th of March 2020 to the 13th of March 2020 using the keywords <em> covid </em> and <em> zambia </em>".
 
-### - Packages Use
+### Packages Used
     - Python Programming Language was the primary programming language for this work.
     - GetOldTweets3 was used to mine old tweets. Please Note: We used this package because it does not have any restrictions on the number of tweets we can mine. 
     - NLP Library was used for sentiment analysis.
