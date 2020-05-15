@@ -13,15 +13,18 @@ Zambia has a population of 18.2 million people with over 50 % active internet us
   3) To get users reaction to how the government is resonding to the COVID-19 situation thus far
  
 ## Methodology
-A total of 5232 tweets were mined from twitter between the 15th of March 2020 to the 13th of March 2020 using the keywords "covid" and "zambia".
+A total of 5232 tweets were mined from twitter between the 15th of March 2020 to the 13th of March 2020 using the keywords <em> covid </em> and <em> zambia </em>".
 
 ### - Packages Use
-    - **Python Programming Language** was the primary programming language for this work.
-    - **GetOldTweets3** was used to mine old tweets. **Please Note: ** We used this package because it does not have any restrictions on the number of tweets we can mine. 
-    - **NLP Library** was used for <em>sentiment analysis</em>.
-    - **PySpark** and **Pandas** were used for <em>data wrangling<em/> and <em>analysis</em>.
-    - **Matplotlib** and **Seaborn**  were used for <em>visualisation</em>.
-    - Data was stored in <em>csv files</em> 
+    - Python Programming Language was the primary programming language for this work.
+    - GetOldTweets3 was used to mine old tweets. Please Note: We used this package because it does not have any restrictions on the number of tweets we can mine. 
+    - NLP Library was used for sentiment analysis.
+    - PySpark and Pandas were used for data wrangling and analysis.
+    - Matplotlib and Seaborn  were used for visualisation.
+    - Data was stored in csv files.
     
 ## Key Findings
 
+
+## Key Words
+Sentiment Analysis, PySpark, Python, NLP, DataSet, Data, Data Visualisation, Data Analysis
