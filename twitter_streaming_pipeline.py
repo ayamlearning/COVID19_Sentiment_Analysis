@@ -47,10 +47,17 @@ def transfrom_tweets():
     data_set=remove_dublicate(data_set)
     data_set=sentiment_classification(data_set)
 
-    data_set.to_csv(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv"))
+    if os.path.exists(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv")):
+        df=pd.read_csv(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv"))
+        df_2=pd.concat([data_set,df])
+        df_2=remove_dublicate(df_2)
 
+        df_2.to_csv(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv"))
+    
+    else:
+        data_set.to_csv(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv"))
+        
     print("Done tranforming tweets \nShape:{}".format(data_set.shape))
-
 
 #
 # TODO: Remove Dublicates
@@ -83,9 +90,8 @@ def sentiment_classification(data_set):
 # TODO: Automatically add todays tweets
 #
 
-
-
 #Main Methods
 if __name__ == "__main__":
-    extract_tweets(str(datetime.date.today()),str(datetime.date.today()),['covid'])
+    #str(datetime.date.today()
+    extract_tweets("2020-05-14","2020-05-15",['covid OR corona%','zambia'])
     transfrom_tweets()
