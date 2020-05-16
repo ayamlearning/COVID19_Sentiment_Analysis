@@ -2,7 +2,7 @@
 
 This dataset is hosted and maintained by the Zambia in Artificial Intelligence, led by Mr Yasin Musa Ayami.
 
-<emp>Disclaimer:</emp> All the data contained in this dataset is based on the data we mined from twitter using the key words ***'covid OR corona%','zambia'***. We will try to update the data as often as possible. If you find errors, Make a pull request.
+<emp>Disclaimer:</emp> All the data contained in this dataset is based on the data we mined from twitter using the key words ***'covid OR corona%','zambia'***. We will try to update the data as often as possible. If you find errors, make a pull request.
 
 See our blog posts
 
