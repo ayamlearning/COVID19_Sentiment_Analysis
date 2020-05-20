@@ -1,0 +1,5 @@
+GetOldTweets3==0.0.11
+pandas==1.0.1
+python-crontab==2.5.1
+textblob==0.15.3
+
