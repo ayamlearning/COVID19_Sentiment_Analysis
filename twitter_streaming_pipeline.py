@@ -93,7 +93,7 @@ def sentiment_classification(data_set):
 
 #Main Methods
 if __name__ == "__main__":
-    end_date = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
-    extract_tweets(end_date, date.today().strftime("%Y-%m-%d"),
+    start_date = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
+    extract_tweets(start_date, date.today().strftime("%Y-%m-%d"),
                    ['covid OR corona%', 'zambia'])
     transform_tweets()
