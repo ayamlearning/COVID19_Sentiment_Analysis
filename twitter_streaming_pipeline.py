@@ -1,16 +1,14 @@
-from datetime import datetime
+from datetime import date, timedelta
 import pandas as pd
 from textblob import TextBlob
-from textblob import Word
-from textblob.sentiments import NaiveBayesAnalyzer
 import GetOldTweets3 as got
 import pickle
 import os
 
+
 #
 # TODO: Extracting Tweets
 #
-
 def extract_tweets(str_strt_date,str_end_date,lst_search_string):
     filepath="data/raw"
     search_string=' '.join([str(elem) for elem in lst_search_string])
@@ -20,7 +18,7 @@ def extract_tweets(str_strt_date,str_end_date,lst_search_string):
                         .setSince(str_strt_date)\
                         .setUntil(str_end_date)
 
-    result= got.manager.TweetManager.getTweets(tweetCriteria)
+    result = got.manager.TweetManager.getTweets(tweetCriteria)
     pickle.dump( result,open(os.path.join(filepath,"raw_tweets.pkl"), "wb" ) )
     print("Done extracting tweets")
    
@@ -28,7 +26,7 @@ def extract_tweets(str_strt_date,str_end_date,lst_search_string):
 #
 # TODO: Transform Tweets
 #
-def transfrom_tweets():
+def transform_tweets():
     filepath="data"
     results= pickle.load( open(os.path.join(filepath,"raw/raw_tweets.pkl"), "rb" ) )
 
@@ -44,13 +42,13 @@ def transfrom_tweets():
     data_set["hashtags"] = [tweet.hashtags for tweet in results]
     data_set["geo"] = [tweet.geo for tweet in results]
         
-    data_set=remove_dublicate(data_set)
+    data_set=remove_duplicate(data_set)
     data_set=sentiment_classification(data_set)
 
     if os.path.exists(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv")):
         df=pd.read_csv(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv"))
         df_2=pd.concat([data_set,df])
-        df_2=remove_dublicate(df_2)
+        df_2=remove_duplicate(df_2)
 
         df_2.to_csv(os.path.join(filepath,"processed/COVID19_ZM_transformedTweets.csv"))
     
@@ -59,12 +57,14 @@ def transfrom_tweets():
         
     print("Done tranforming tweets \nShape:{}".format(data_set.shape))
 
+
 #
 # TODO: Remove Dublicates
 #
-def remove_dublicate(data_set):
+def remove_duplicate(data_set):
     return data_set.drop_duplicates(subset =["id","username"],keep = False) 
-    
+
+
 #
 # TODO: Classify tweets
 #
@@ -90,8 +90,10 @@ def sentiment_classification(data_set):
 # TODO: Automatically add todays tweets
 #
 
+
 #Main Methods
 if __name__ == "__main__":
-    #str(datetime.date.today()
-    extract_tweets("2020-05-14","2020-05-15",['covid OR corona%','zambia'])
-    transfrom_tweets()
+    start_date = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
+    extract_tweets(start_date, date.today().strftime("%Y-%m-%d"),
+                   ['covid OR corona%', 'zambia'])
+    transform_tweets()
